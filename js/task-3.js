@@ -1,12 +1,12 @@
-const inputRef = document.querySelector("#name-input");
-const nameOutput = document.querySelector("#name-output");
+const refs = {
+  input: document.querySelector("#name-input"),
+  nameOutput: document.querySelector("#name-output"),
+};
 
-inputRef.addEventListener("input", onInputChange);
+refs.input.addEventListener("input", onInputChange);
 
 function onInputChange(event) {
-  if (event.currentTarget.value.includes(" ")) {
-    nameOutput.textContent = nameOutput.textContent.trim();
-  } else {
-    nameOutput.textContent = event.currentTarget.value;
-  }
+  event.currentTarget.value.trim() !== ""
+    ? (refs.nameOutput.textContent = event.currentTarget.value.trim())
+    : refs.nameOutput.textContent;
 }

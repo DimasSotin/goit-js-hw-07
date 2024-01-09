@@ -12,8 +12,9 @@ const refs = {
 refs.btnCngColor.addEventListener("click", changeColor);
 
 function changeColor(event) {
-  refs.body.style.backgroundColor = getRandomHexColor();
-  refs.color.textContent = getRandomHexColor();
-  refs.btnCngColor.style.backgroundColor = getRandomHexColor();
-  refs.btnCngColor.style.color = 'white';
+  const randomColor = getRandomHexColor();
+  refs.body.style.backgroundColor = randomColor;
+  refs.color.textContent = randomColor;
+
+
 }

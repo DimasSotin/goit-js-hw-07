@@ -27,13 +27,12 @@ const images = [
 
 const imagesEl = document.querySelector(".gallery");
 
-const listEl = images.map((image) => {
+const listEl = images.forEach((image) => {
   const imageEl = document.createElement("li");
   const imgEl = document.createElement("img");
   imgEl.classList.add("list__image");
   imgEl.src = image.url;
   imgEl.alt = image.alt;
   imageEl.append(imgEl);
-  return imageEl;
+  imagesEl.append(imageEl);
 });
-imagesEl.append(...listEl);
