@@ -12,11 +12,10 @@ const refs = {
   divBoxesEl: document.querySelector("#boxes"),
 };
 
-refs.createBtnEl.addEventListener("click", createElements);
-
+refs.createBtnEl.addEventListener("click", handleCreateButtonClick);
 refs.destroyBtnEl.addEventListener("click", destroyBoxes);
 
-function createElements() {
+function handleCreateButtonClick() {
   if (
     Number(refs.inputNumberEl.value) > refs.inputNumberEl.max ||
     Number(refs.inputNumberEl.value) < refs.inputNumberEl.min
@@ -25,7 +24,6 @@ function createElements() {
   } else {
     createBoxes(refs.inputNumberEl.value);
   }
-  refs.inputNumberEl.value = "";
 }
 
 function destroyBoxes() {
@@ -38,15 +36,13 @@ function createBoxes(amount) {
   for (let i = 0; i < amount; i += 1) {
     const defaultSize = 30 + 10 * i;
     const div = document.createElement("div");
-    // console.log(div);
     div.classList.add("item");
     div.style.width = `${defaultSize}px`;
     div.style.height = `${defaultSize}px`;
-    div.style.marginRight = "30px";
-    div.style.marginBottom = "30px";
     div.style.backgroundColor = getRandomHexColor();
     boxesArr.push(div);
-    // console.log("arr length", boxesArr.length);
+    refs.inputNumberEl.value = "";
+    destroyBoxes();
   }
   return refs.divBoxesEl.append(...boxesArr);
 }
