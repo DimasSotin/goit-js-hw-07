@@ -33,16 +33,16 @@ function destroyBoxes() {
 
 function createBoxes(amount) {
   const boxesArr = [];
+  destroyBoxes();
   for (let i = 0; i < amount; i += 1) {
-    const defaultSize = 30 + 10 * i;
+    const sizeIncrement = 30 + 10 * i;
     const div = document.createElement("div");
     div.classList.add("item");
-    div.style.width = `${defaultSize}px`;
-    div.style.height = `${defaultSize}px`;
+    div.style.width = `${sizeIncrement}px`;
+    div.style.height = `${sizeIncrement}px`;
     div.style.backgroundColor = getRandomHexColor();
     boxesArr.push(div);
     refs.inputNumberEl.value = "";
-    destroyBoxes();
   }
   return refs.divBoxesEl.append(...boxesArr);
 }

@@ -2,10 +2,11 @@ const refs = {
   input: document.querySelector("#name-input"),
   nameOutput: document.querySelector("#name-output"),
 };
+const { input, nameOutput } = refs;
 
-refs.input.addEventListener("input", onInputChange);
+input.addEventListener("input", onInputChange);
 
 function onInputChange(event) {
   const trimString = event.currentTarget.value.trim();
-  refs.nameOutput.textContent = trimString !== "" ? trimString : "Anonymous";
+  nameOutput.textContent = trimString !== "" ? trimString : "Anonymous";
 }

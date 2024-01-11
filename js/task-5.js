@@ -9,8 +9,9 @@ const refs = {
   changeColorButton: document.querySelector(".change-color"),
   body: document.querySelector("body"),
 };
-refs.changeColorButton.addEventListener("click", () => {
+const { color, changeColorButton, body } = refs;
+changeColorButton.addEventListener("click", () => {
   const randomColor = getRandomHexColor();
-  refs.body.style.backgroundColor = randomColor;
-  refs.color.textContent = randomColor;
+  body.style.backgroundColor = randomColor;
+  color.textContent = randomColor;
 });

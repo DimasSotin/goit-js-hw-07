@@ -14,9 +14,10 @@ function onFormSubmit(event) {
       email,
       password,
     };
+     event.target.reset();
     console.log(formData);
   } else {
     alert("All form fields must be filled in");
   }
-  event.target.reset();
+ 
 }
